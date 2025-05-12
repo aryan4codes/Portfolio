@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -74,15 +73,23 @@ const Contact = () => {
                 </div>
                 <div className="flex items-center gap-3">
                   <Github className="h-5 w-5 text-muted-foreground" />
-                  <a href="https://github.com/aryancodes" target="_blank" rel="noopener noreferrer" className="hover:underline">
-                    github.com/aryancodes
+                  <a href="https://github.com/aryan4codes" target="_blank" rel="noopener noreferrer" className="hover:underline">
+                    github.com/aryan4codes
                   </a>
                 </div>
                 <div className="flex items-center gap-3">
                   <Linkedin className="h-5 w-5 text-muted-foreground" />
-                  <a href="https://linkedin.com/in/aryan-rajpurkar-6b96b1b3/" target="_blank" rel="noopener noreferrer" className="hover:underline">
+                  <a href="https://www.linkedin.com/in/aryan-rajpurkar-6b96b1b3/" target="_blank" rel="noopener noreferrer" className="hover:underline">
                     linkedin.com/in/aryan-rajpurkar-6b96b1b3/
                   </a>
+                </div>
+                <div className="flex items-center gap-3">
+                  <span className="h-5 w-5 flex items-center justify-center text-muted-foreground">📱</span>
+                  <span>7718950601</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <span className="h-5 w-5 flex items-center justify-center text-muted-foreground">📍</span>
+                  <span>Mumbai, India</span>
                 </div>
               </div>
             </CardContent>

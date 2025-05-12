@@ -1,4 +1,3 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -117,4 +116,68 @@
 /* Custom highlight styles */
 ::selection {
   @apply bg-black/10 dark:bg-white/10;
+}
+
+/* Image Carousel Styles */
+.carousel-image {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  transform: perspective(1000px) rotateY(-5deg);
+  transition: transform 0.6s ease;
+}
+
+.carousel-image:hover {
+  transform: perspective(1000px) rotateY(0);
+}
+
+.dark .carousel-image {
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+.carousel-caption {
+  position: absolute;
+  bottom: 1rem;
+  left: 1.5rem;
+  color: white;
+  font-weight: bold;
+  max-width: 80%;
+  z-index: 10;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.carousel-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.3) 100%);
+  border-radius: inherit;
+}
+
+.carousel-vignette {
+  position: absolute;
+  inset: 0;
+  box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.6);
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+/* Media Queries for Image Carousel */
+@media (max-width: 768px) {
+  .carousel-image {
+    transform: perspective(1000px) rotateY(0);
+    box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.25);
+    height: 300px;
+    margin-top: 1.5rem;
+  }
+  
+  .carousel-caption {
+    left: 1rem;
+    bottom: 0.5rem;
+  }
+  
+  .carousel-caption span {
+    font-size: 0.875rem;
+    padding: 0.25rem 0.5rem;
+  }
 }

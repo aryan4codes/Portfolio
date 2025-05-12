@@ -1,7 +1,7 @@
-
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowDown } from 'lucide-react';
+import ImageCarousel from './ImageCarousel';
 
 const Hero = () => {
   const scrollToProjects = () => {
@@ -12,24 +12,34 @@ const Hero = () => {
   };
 
   return (
-    <section className="py-16 md:py-32 flex flex-col justify-center min-h-[calc(100vh-150px)]">
+    <section className="py-16 md:py-24 flex flex-col justify-center min-h-[calc(100vh-150px)]">
       <div className="container">
-        <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-6 max-w-3xl">
-          <span className="gradient-text animate-gradient-shift">
-            Crafting digital experiences that merge beauty with functionality.
-          </span>
-        </h1>
-        <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl">
-          I'm a passionate developer focused on creating minimalist designs with powerful functionality. 
-          I blend creativity and technical expertise to build things people love to use.
-        </p>
-        <Button 
-          onClick={scrollToProjects} 
-          className="text-base group flex items-center gap-2"
-        >
-          View my work
-          <ArrowDown className="w-4 h-4 transition-transform group-hover:translate-y-1" />
-        </Button>
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-center">
+          <div className="flex flex-col md:col-span-7">
+            <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-6">
+              <span className="gradient-text animate-gradient-shift">
+                Building intelligent systems with AI, ML & Data Science.
+              </span>
+            </h1>
+            <p className="text-lg md:text-xl text-muted-foreground mb-8">
+              I'm a passionate developer specializing in AI-powered applications, data analytics, and full-stack development.
+              From federated learning to real-time analytics, I build solutions that make a difference.
+            </p>
+            <div className="mb-8 md:mb-0">
+              <Button 
+                onClick={scrollToProjects} 
+                className="text-base group flex items-center gap-2"
+              >
+                View my work
+                <ArrowDown className="w-4 h-4 transition-transform group-hover:translate-y-1" />
+              </Button>
+            </div>
+          </div>
+
+          <div className="md:col-span-5 h-[300px] md:h-[500px] w-full">
+            <ImageCarousel />
+          </div>
+        </div>
       </div>
     </section>
   );

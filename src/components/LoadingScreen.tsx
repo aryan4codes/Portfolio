@@ -45,7 +45,7 @@ const LoadingScreen = ({ onComplete }: LoadingScreenProps) => {
     >
       <div className="text-center">
         <h1 className="font-mono text-xl sm:text-2xl md:text-3xl font-medium">
-          <span className="typewriter gradient-text animate-gradient-shift">
+          <span className="typewriter gradient-text animate-gradient-shift font-perplexity">
             {welcomeText.substring(0, textIndex)}
           </span>
           <span className="animate-pulse">|</span>

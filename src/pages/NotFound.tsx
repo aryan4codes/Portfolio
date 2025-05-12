@@ -20,7 +20,7 @@ const NotFound = () => {
       <div className="text-center space-y-4 max-w-md">
         <h1 className="text-6xl font-bold gradient-text">404</h1>
         <p className="text-xl text-muted-foreground mb-6">
-          Oops! This page seems to be missing.
+          Don't try to snoop around!
         </p>
         <Button asChild>
           <a href="/" className="inline-flex items-center gap-2">

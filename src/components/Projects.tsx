@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -21,17 +20,17 @@ interface Project {
 const projects: Project[] = [
   {
     title: "SDE (ML) Intern",
-    company: "Mentoria.ai",
+    company: "Mantrika.ai",
     description: "Led development of AI-powered HR recruitment platform as founding engineer, implementing avatar integration and database schemas with 40% improved performance.",
     date: "01/2025 - Present",
     location: "India",
     type: "experience",
     tags: ["Python", "React", "AI"],
-    technicalSkills: "MongoDB, Redis.js, LangChain, LangSmith, LangBridge, MySQL, Supabase, AWS (RedshiftJS, EC2, CloudWatch)"
+    technicalSkills: "MongoDB, Redis.js, LangChain, LangSmith, LingoBridge, MySQL, Supabase, AWS (RedshiftJS, EC2, CloudWatch)"
   },
   {
     title: "ML Engineer Intern",
-    company: "AfterShip",
+    company: "AI4EducationLabs",
     description: "Developed an AI-driven assessment platform using item response theory and knowledge graphs, impacting 5,000+ students across 50 schools in India and Germany.",
     date: "06/2024 - 07/2024",
     location: "India",
@@ -40,8 +39,8 @@ const projects: Project[] = [
     technicalSkills: "Knowledge Representation, Item Response Theory Research, AWS (S3, EC2)"
   },
   {
-    title: "Technical Architect",
-    company: "Ziplingo",
+    title: "Technical Lead",
+    company: "DrillDown",
     description: "Single-handedly built e-menu system for WordPress, Wix, and Instagram, reducing audit times by 35% and improving analytics accuracy for FMCG industry clients by 50%.",
     date: "03/2024 - 04/2024",
     location: "India",
@@ -50,29 +49,39 @@ const projects: Project[] = [
     technicalSkills: "CI/CD Pipelines, GCP - BigQuery & Cloud Run, SQL, Large Language Models"
   },
   {
-    title: "TransformDocs",
+    title: "TransformoDocs",
     description: "Intelligent Document Search and Management Platform. Manages and advises documents with AI indexing, machine-readable checks, and automated approval workflows.",
     type: "project",
     tags: ["Python", "MongoDB", "AI"],
-    github: "https://github.com/aryancodes",
+    github: "https://github.com/aryan4codes",
+    live: "https://transformodoc.vercel.app/",
     technicalSkills: "Hugging Face, Python (Flask), MongoDB (GridFS), Clerk API, BM25, M2, Apache Kafka"
   },
   {
-    title: "FLowSocial",
-    description: "Federated Learning Social Media Platform. Privacy-centric social media platform using Federated Learning for personalized multimedia content recommendations.",
+    title: "FlowSocial",
+    description: "Federated Learning Social Media Platform. Privacy-centric social media platform using Federated Learning for personalized, multimedia content recommendations.",
     type: "project",
+    live: "https://flowsocial.aryanrajpurkar.tech",
     tags: ["Federated Learning", "ML", "Privacy"],
-    github: "https://github.com/aryancodes",
+    github: "https://github.com/aryan4codes",
     technicalSkills: "React, Flask, MongoDB, TensorFlow/Keras, Federated Learning, Cross-Modal Attention, Natural UI"
   },
   {
-    title: "Wellnix",
-    description: "AI-powered Mental Health Platform featuring mood tracking, crisis prevention, and personalized AI interventions. Implements real-time voice agents and sentiment analysis.",
+    title: "Wellverse.ai",
+    description: "AI-powered Mental Health Digital Platform featuring mood tracking, crisis prevention, and personalized AI interventions. Implements real-time voice agents and sentiment analysis.",
     type: "project",
     tags: ["Mental Health", "AI", "NLP"],
-    github: "https://github.com/aryancodes",
-    live: "https://example.com",
+    github: "https://github.com/aryan4codes",
+    live: "https://well-verse-ai.vercel.app/",
     technicalSkills: "OpenAI/Gemini API, LangChain, Socket.io, BlandAI, Meta.js, Flask, MongoDB, WebRTC"
+  },
+  {
+    title: "StockIO",
+    description: "Real-Time Stock Market Analytics Platform. It processes real-time stock market data (NASDAQ) flow through Kafka, stores in S3, and enables analysis through AWS Glue and Athena.",
+    type: "project",
+    tags: ["Real-Time Analytics", "AWS", "Kafka"],
+    github: "https://github.com/aryan4codes/StockIO",
+    technicalSkills: "Apache Kafka, AWS Cloud Services, Python (pandas, kafka-python, S3boto3), SQL"
   },
 ];
 
@@ -92,7 +101,7 @@ const Projects = () => {
               <CardHeader>
                 <div className="flex items-center gap-2 mb-2">
                   <Briefcase className="h-4 w-4 text-muted-foreground" />
-                  <span className="text-muted-foreground">{exp.company}</span>
+                  <span className="text-muted-foreground">{exp.company}</span> 
                 </div>
                 <CardTitle className="font-medium">{exp.title}</CardTitle>
                 <CardDescription className="text-muted-foreground mt-2 flex justify-between">

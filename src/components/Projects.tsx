@@ -25,8 +25,9 @@ const projects: Project[] = [
     date: "01/2025 - Present",
     location: "India",
     type: "experience",
-    tags: ["Python", "React", "AI"],
-    technicalSkills: "MongoDB, Redis.js, LangChain, LangSmith, LingoBridge, MySQL, Supabase, AWS (RedshiftJS, EC2, CloudWatch)"
+    live: "https://mantrika.ai/",
+    tags: ["Python", "React", "AI", "LangChain", "LangSmith", "MySQL", "Supabase", "AWS"],
+    technicalSkills: "MongoDB, Redis.js, LangChain, LangSmith, MySQL, Supabase, AWS (RedshiftJS, EC2, CloudWatch)"
   },
   {
     title: "ML Engineer Intern",
@@ -35,17 +36,18 @@ const projects: Project[] = [
     date: "06/2024 - 07/2024",
     location: "India",
     type: "experience",
-    tags: ["Machine Learning", "Knowledge Graphs", "IRT"],
+    tags: ["Machine Learning", "Knowledge Graphs", "IRT", "Cloud", "AI"],
     technicalSkills: "Knowledge Representation, Item Response Theory Research, AWS (S3, EC2)"
   },
   {
     title: "Technical Lead",
     company: "DrillDown",
     description: "Single-handedly built e-menu system for WordPress, Wix, and Instagram, reducing audit times by 35% and improving analytics accuracy for FMCG industry clients by 50%.",
-    date: "03/2024 - 04/2024",
+    date: "03/2024 - 08/2024",
     location: "India",
     type: "experience",
-    tags: ["Full-Stack", "Analytics"],
+    live: "https://drilldown.online/",
+    tags: ["Full-Stack", "Analytics", "Cloud", "AI"],
     technicalSkills: "CI/CD Pipelines, GCP - BigQuery & Cloud Run, SQL, Large Language Models"
   },
   {

@@ -19,7 +19,7 @@ const LoadingScreen = ({ onComplete }: LoadingScreenProps) => {
         clearInterval(typingInterval);
         return prev;
       });
-    }, 50);
+    }, 100);
     
     // After text is complete, wait and then fade out
     const timer = setTimeout(() => {
@@ -27,7 +27,7 @@ const LoadingScreen = ({ onComplete }: LoadingScreenProps) => {
       setTimeout(() => {
         onComplete();
       }, 600); // Give time for fade-out animation
-    }, welcomeText.length * 50 + 1500); // Wait for typing + extra time
+    }, welcomeText.length * 100 + 1000); // Wait for typing + extra time
     
     return () => {
       clearInterval(typingInterval);
@@ -38,22 +38,18 @@ const LoadingScreen = ({ onComplete }: LoadingScreenProps) => {
   return (
     <div 
       className={cn(
-        "fixed inset-0 z-50 flex items-center justify-center bg-background transition-opacity duration-500", 
+        "fixed inset-0 z-50 flex items-center justify-center bg-black transition-opacity duration-500", 
         isVisible ? "opacity-100" : "opacity-0"
       )}
     >
-      <div className="w-full max-w-[90vw] px-4 sm:px-6 md:max-w-[80vw] lg:max-w-xl text-center">
-        <div className="relative mx-auto overflow-hidden p-6 sm:p-8 rounded-xl border border-border/40 bg-card/50 backdrop-blur-sm shadow-lg">
-          <div className="absolute inset-0 bg-gradient-to-b from-primary/10 via-transparent to-primary/5 opacity-50"></div>
-          <h1 className="relative font-mono text-base xs:text-lg sm:text-xl md:text-2xl lg:text-3xl font-medium">
-            <span className="typewriter gradient-text animate-gradient-shift font-perplexity">
+      <div className="text-center px-4">
+        <div className="inline-block">
+          <h1 className="font-mono text-2xl md:text-3xl text-white">
+            <span className="inline-block">
               {welcomeText.substring(0, textIndex)}
             </span>
-            <span className="animate-pulse ml-0.5">|</span>
+            <span className="inline-block w-1 h-6 md:h-7 bg-white ml-1 animate-blink"></span>
           </h1>
-          <div className="mt-4 relative flex justify-center">
-            <div className="h-1 w-16 sm:w-24 md:w-32 rounded-full bg-gradient-to-r from-primary/30 via-primary/50 to-primary/30 animate-pulse"></div>
-          </div>
         </div>
       </div>
     </div>

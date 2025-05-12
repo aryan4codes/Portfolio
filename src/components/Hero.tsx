@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowDown } from 'lucide-react';
 import ImageCarousel from './ImageCarousel';
+import { TextGenerateEffect } from '@/components/ui/text-generate-effect';
 
 const Hero = () => {
   const scrollToProjects = () => {
@@ -16,11 +17,17 @@ const Hero = () => {
       <div className="container">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-center">
           <div className="flex flex-col md:col-span-7">
-            <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-6">
-              <span className="gradient-text animate-gradient-shift">
-                Building intelligent systems with AI, ML & Data Science.
-              </span>
-            </h1>
+            <div className="mb-4">
+              <TextGenerateEffect 
+                words="Hi, I'm Aryan Rajpurkar" 
+                className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground" 
+                duration={0.7}
+                filter={true}
+              />
+            </div>
+            <h4 className="text-md md:text-xl lg:text-2xl mb-6 text-muted-foreground">
+              Building intelligent systems with AI, ML & Data Science.
+            </h4>
             <p className="text-lg md:text-xl text-muted-foreground mb-8">
               I'm a passionate developer specializing in AI-powered applications, data analytics, and full-stack development.
               From federated learning to real-time analytics, I build solutions that make a difference.

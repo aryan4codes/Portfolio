@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import LoadingScreen from '@/components/LoadingScreen';
 import Header from '@/components/Header';
@@ -7,6 +6,7 @@ import Projects from '@/components/Projects';
 import About from '@/components/About';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
+import FloatingNav from '@/components/Navigation/FloatingNav';
 
 const Index = () => {
   const [loading, setLoading] = useState(true);
@@ -42,6 +42,7 @@ const Index = () => {
           <Contact />
         </main>
         <Footer />
+        <FloatingNav />
       </div>
     </>
   );

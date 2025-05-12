@@ -8,7 +8,7 @@ const Header = () => {
     <header className="py-6 w-full">
       <div className="container flex justify-between items-center">
         <div className="font-mono font-medium text-lg">
-          <span className="gradient-text animate-gradient-shift">aryan</span>
+          <span className="gradient-text animate-gradient-shift text-2xl">aryan</span>
         </div>
         <div className="flex items-center gap-2 sm:gap-4">
           <ThemeToggle />

@@ -1,16 +1,52 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { Github, Linkedin, Mail } from 'lucide-react';
+import { toast } from '@/components/ui/sonner';
 
 const Contact = () => {
-  const handleSubmit = (e: React.FormEvent) => {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [message, setMessage] = useState('');
+  const [loading, setLoading] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Here you would typically handle form submission
-    console.log('Form submitted');
+    
+    // Basic validation
+    if (!name || !email || !message) {
+      toast.error('Please fill in all fields');
+      return;
+    }
+
+    if (!email.includes('@')) {
+      toast.error('Please enter a valid email address');
+      return;
+    }
+
+    setLoading(true);
+
+    try {
+      // For demonstration purposes, we'll simulate sending an email
+      // In a real implementation, this would connect to a backend service
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      
+      console.log('Email sent to av.rajpurkar@gmail.com');
+      console.log({ name, email, message });
+      
+      toast.success('Message sent successfully!');
+      setName('');
+      setEmail('');
+      setMessage('');
+    } catch (error) {
+      console.error('Error sending message:', error);
+      toast.error('Failed to send message. Please try again later.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -32,20 +68,20 @@ const Contact = () => {
               <div className="space-y-4">
                 <div className="flex items-center gap-3">
                   <Mail className="h-5 w-5 text-muted-foreground" />
-                  <a href="mailto:hello@example.com" className="hover:underline">
-                    hello@example.com
+                  <a href="mailto:av.rajpurkar@gmail.com" className="hover:underline">
+                    av.rajpurkar@gmail.com
                   </a>
                 </div>
                 <div className="flex items-center gap-3">
                   <Github className="h-5 w-5 text-muted-foreground" />
-                  <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="hover:underline">
-                    github.com/aryan
+                  <a href="https://github.com/aryancodes" target="_blank" rel="noopener noreferrer" className="hover:underline">
+                    github.com/aryancodes
                   </a>
                 </div>
                 <div className="flex items-center gap-3">
                   <Linkedin className="h-5 w-5 text-muted-foreground" />
-                  <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:underline">
-                    linkedin.com/in/aryan
+                  <a href="https://linkedin.com/in/aryan-rajpurkar-6b96b1b3/" target="_blank" rel="noopener noreferrer" className="hover:underline">
+                    linkedin.com/in/aryan-rajpurkar-6b96b1b3/
                   </a>
                 </div>
               </div>
@@ -62,16 +98,32 @@ const Contact = () => {
             <CardContent>
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
-                  <Input placeholder="Your Name" className="bg-background" />
+                  <Input 
+                    placeholder="Your Name" 
+                    className="bg-background" 
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                  />
                 </div>
                 <div>
-                  <Input type="email" placeholder="Your Email" className="bg-background" />
+                  <Input 
+                    type="email" 
+                    placeholder="Your Email" 
+                    className="bg-background"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)} 
+                  />
                 </div>
                 <div>
-                  <Textarea placeholder="Your Message" className="bg-background min-h-[120px]" />
+                  <Textarea 
+                    placeholder="Your Message" 
+                    className="bg-background min-h-[120px]"
+                    value={message}
+                    onChange={(e) => setMessage(e.target.value)} 
+                  />
                 </div>
-                <Button type="submit" className="w-full">
-                  Send Message
+                <Button type="submit" className="w-full" disabled={loading}>
+                  {loading ? 'Sending...' : 'Send Message'}
                 </Button>
               </form>
             </CardContent>

@@ -12,6 +12,10 @@ const Index = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    // Apply dark mode as default on initial load
+    document.documentElement.classList.add('dark');
+    localStorage.setItem('theme', 'dark');
+    
     // You could add additional loading logic here if needed
     const timer = setTimeout(() => {
       // This is a fallback in case onComplete doesn't fire

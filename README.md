@@ -1,73 +1,63 @@
-# Welcome to your Lovable project
+# Aryan Rajpurkar - Portfolio Website
 
-## Project info
+## Visit portfolio at [aryarajpurkar.tech](https://aryanrajpurkar.tech)
+## Overview
 
-**URL**: https://lovable.dev/projects/04803134-e5cd-44e6-a1c2-66972ff8b438
+This is my personal portfolio website showcasing my projects, skills, and experiences in AI, Machine Learning, and Full-Stack Development. The website features a modern UI with interactive components like animated counters, floating navigation, and other visual effects.
 
-## How can I edit this code?
+## Features
 
-There are several ways of editing your application.
+- **Modern UI Components**: Utilizes shadcn components and Aceternity-inspired visuals
+- **Interactive Floating Navigation**: Easy section navigation with animated dock
+- **Animated Elements**: Text generation effects, counters, and hover interactions
+- **Responsive Design**: Optimized for both desktop and mobile viewing
+- **Dark Mode Support**: Enhanced viewing experience with dark theme
 
-**Use Lovable**
+## Technologies Used
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/04803134-e5cd-44e6-a1c2-66972ff8b438) and start prompting.
+This portfolio is built with:
 
-Changes made via Lovable will be committed automatically to this repo.
+- React
+- TypeScript
+- Vite
+- Tailwind CSS
+- Framer Motion
+- shadcn/ui components
 
-**Use your preferred IDE**
+## Getting Started
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
+To run this project locally:
 
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+# Clone the repository
+git clone https://github.com/aryan-rajpurkar/portfolio-website.git
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+# Navigate to the project directory
+cd portfolio-website
 
-# Step 3: Install the necessary dependencies.
-npm i
+# Install dependencies
+npm install
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Start the development server
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+## Deployment
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+This website is deployed on Vercel. To deploy your own version:
 
-**Use GitHub Codespaces**
+1. Push your code to GitHub
+2. Connect your repository to Vercel
+3. Configure the build settings:
+   - Build Command: `npm run build`
+   - Output Directory: `dist`
+4. Click Deploy
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## Connect With Me
 
-## What technologies are used for this project?
+- GitHub: [github.com/aryan-rajpurkar](https://github.com/aryan-rajpurkar)
+- LinkedIn: [linkedin.com/in/aryanrajpurkar](https://linkedin.com/in/aryanrajpurkar)
 
-This project is built with:
+## License
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/04803134-e5cd-44e6-a1c2-66972ff8b438) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+This project is open source and available under the [MIT License](LICENSE).

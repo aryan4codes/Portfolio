@@ -126,7 +126,7 @@ const About = () => {
                         </div>
                         <div>
                           <p className="text-sm text-muted-foreground">Leadership</p>
-                          <p className="font-medium">National Data Science Committee</p>
+                          <p className="font-medium">Society of Data Science - India</p>
                         </div>
                       </div>
                       
@@ -175,7 +175,7 @@ const About = () => {
                         items={[
                           {
                             title: 'Chairperson - DJS-S4DS',
-                            subtitle: 'National Data Science Committee of India',
+                            subtitle: 'Society of Data Science - India',
                             description: 'Designed and executed technical workshops and bootcamps, mentored 200+ students in machine learning, AI and data analytics',
                             date: '07/2024 - Present',
                             color: 'bg-indigo-500',

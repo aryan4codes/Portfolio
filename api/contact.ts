@@ -1,10 +1,10 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
-import nodemailer from 'nodemailer';
 
 export default async function handler(
   req: VercelRequest,
   res: VercelResponse
 ) {
+  const nodemailer = (await import('nodemailer')).default;
   if (req.method !== 'POST') {
     res.setHeader('Allow', ['POST']);
     return res.status(405).end(`Method ${req.method} Not Allowed`);

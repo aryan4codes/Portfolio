@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { Github, Linkedin, Mail } from 'lucide-react';
 import { toast } from '@/components/ui/sonner';
+import { sendContactForm } from '@/lib/api';
 
 const Contact = () => {
   const [name, setName] = useState('');
@@ -29,17 +30,17 @@ const Contact = () => {
     setLoading(true);
 
     try {
-      // For demonstration purposes, we'll simulate sending an email
-      // In a real implementation, this would connect to a backend service
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      const success = await sendContactForm({ name, email, message });
       
-      console.log('Email sent to av.rajpurkar@gmail.com');
-      console.log({ name, email, message });
-      
-      toast.success('Message sent successfully!');
-      setName('');
-      setEmail('');
-      setMessage('');
+      if (success) {
+        toast.success('Message sent successfully!');
+        // Reset form fields after successful submission
+        setName('');
+        setEmail('');
+        setMessage('');
+      } else {
+        toast.error('Failed to send message. Please try again later.');
+      }
     } catch (error) {
       console.error('Error sending message:', error);
       toast.error('Failed to send message. Please try again later.');

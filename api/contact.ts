@@ -4,7 +4,9 @@ export default async function handler(
   req: VercelRequest,
   res: VercelResponse
 ) {
-  const nodemailer = (await import('nodemailer')).default;
+  // Import nodemailer using ES Module dynamic import
+  const nodemailer = await import('nodemailer');
+  
   if (req.method !== 'POST') {
     res.setHeader('Allow', ['POST']);
     return res.status(405).end(`Method ${req.method} Not Allowed`);
@@ -34,6 +36,7 @@ export default async function handler(
     return res.status(500).json({ success: false, error: 'Server configuration error. Email environment variables missing.' });
   }
 
+  // Create transporter using the proper nodemailer import
   const transporter = nodemailer.createTransport({
     host: smtpHost,
     port: Number(smtpPort),
@@ -42,19 +45,13 @@ export default async function handler(
       user: smtpUser,
       pass: smtpPass,
     },
-
   });
 
   const mailOptions = {
     from: `"${name} - Portfolio Contact" <${smtpUser}>`,
-    
     to: emailToReceive,
-    
-    // User's email, so you can reply directly to them
     replyTo: email,
-    
     subject: `New Portfolio Contact Form Submission from ${name}`,
-    
     text: `
       You have a new message from your portfolio website:
 
@@ -63,7 +60,6 @@ export default async function handler(
       Message:
       ${message}
     `,
-    
     html: `
       <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #eaeaea; border-radius: 5px;">
         <h2 style="color: #333; border-bottom: 1px solid #eaeaea; padding-bottom: 10px;">New Contact Form Submission</h2>
@@ -87,9 +83,7 @@ export default async function handler(
 
   try {
     const info = await transporter.sendMail(mailOptions);
-
     return res.status(200).json({ success: true, message: 'Email sent successfully!' });
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (error: any) {
     console.error('Error sending email:', error);
     return res.status(500).json({ success: false, error: 'Failed to send message. Please try again later.', details: error.message });

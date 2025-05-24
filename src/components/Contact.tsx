@@ -80,8 +80,8 @@ const Contact = () => {
                 </div>
                 <div className="flex items-center gap-3">
                   <Linkedin className="h-5 w-5 text-muted-foreground" />
-                  <a href="https://www.linkedin.com/in/aryan-rajpurkar-6b96b1b3/" target="_blank" rel="noopener noreferrer" className="hover:underline">
-                    linkedin.com/in/aryan-rajpurkar-6b96b1b3/
+                  <a href="https://www.linkedin.com/in/aryan-rajpurkar" target="_blank" rel="noopener noreferrer" className="hover:underline">
+                    linkedin.com/in/aryan-rajpurkar
                   </a>
                 </div>
                 <div className="flex items-center gap-3">

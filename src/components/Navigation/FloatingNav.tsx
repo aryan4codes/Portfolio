@@ -85,7 +85,7 @@ export default function FloatingNav() {
       icon: (
         <IconBrandLinkedin className="h-full w-full text-primary" />
       ),
-      href: "https://linkedin.com/in/aryan-rajpurkar-6b96b1b3/",
+      href: "https://linkedin.com/in/aryan-rajpurkar",
       target: "_blank",
     },
   ];

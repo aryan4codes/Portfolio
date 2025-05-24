@@ -17,7 +17,7 @@ const Header = () => {
               <Github className="w-5 h-5" />
             </Button>
           </a>
-          <a href="https://www.linkedin.com/in/aryan-rajpurkar-6b96b1b3/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+          <a href="https://www.linkedin.com/in/aryan-rajpurkar" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
             <Button variant="ghost" size="icon" className="rounded-full">
               <Linkedin className="w-5 h-5" />
             </Button>

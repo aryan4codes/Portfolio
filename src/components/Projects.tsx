@@ -19,10 +19,22 @@ interface Project {
 
 const projects: Project[] = [
   {
+    title: "Data Engineering Intern",
+    company: "VisaFriendly",
+    description:
+      "Developed real-time ETL pipelines processing 100K+ daily job entries, improving accuracy by 28% and reducing processing time by 40%. Built AI agents for resume and cover-letter generation with Crewai and n8n, automating ~8K documents monthly and improving interview response rates by 22%.",
+    date: "06/2025 - Present",
+    location: "India",
+    type: "experience",
+    tags: ["Data Engineering", "AWS", "Python", "SQL", "ETL", "AI"],
+    technicalSkills:
+      "AWS (ECS, ECR, CloudWatch, RDS), Python, SQL, Crewai, n8n, ETL Pipelines, Data Modeling, LLMs",
+  },
+  {
     title: "SDE (ML) Intern",
     company: "Mantrika.ai",
     description: "Led development of AI-powered HR recruitment platform as founding engineer, implementing avatar integration and database schemas with 40% improved performance.",
-    date: "01/2025 - Present",
+    date: "01/2025 - 08/2025",
     location: "India",
     type: "experience",
     live: "https://mantrika.ai/",
@@ -49,6 +61,26 @@ const projects: Project[] = [
     live: "https://drilldown.online/",
     tags: ["Full-Stack", "Analytics", "Cloud", "AI"],
     technicalSkills: "CI/CD Pipelines, GCP - BigQuery & Cloud Run, SQL, Large Language Models"
+  },
+  {
+    title: "Recrutr",
+    description:
+      "AI-based recruitment assistant. Built AI agents for candidate shortlisting, ranking, and interview scheduling, reducing screening time by 65% and improving SLA compliance by 35%. Implemented vector-based search and AI fit analysis with 92% precision for accurate, explainable recommendations, reducing data errors by 50%.",
+    type: "project",
+    tags: ["AI", "Next.js", "TypeScript", "Supabase", "LangChain", "OpenAI", "AWS"],
+    live: "https://recrutr.aryanrajpurkar.tech",
+    technicalSkills:
+      "Next.js, TypeScript, Supabase (pgvector), Vercel AI SDK, OpenAI GPT-4, LangChain, AWS"
+  },
+  {
+    title: "Scholr",
+    description:
+      "AI-Powered Financial Aid Discovery and Application Platform. Matches student profiles against 10,000+ scholarships with 95% accuracy and automated verification. Features AI chat assistant, document optimization, success prediction models, and workflow management across $2.5M+ funding opportunities.",
+    type: "project",
+    tags: ["AI", "Scholarships", "React", "TypeScript", "Supabase", "OpenAI"],
+    live: "https://scholr.aryanrajpurkar.tech",
+    technicalSkills:
+      "React, TypeScript, Vite, Supabase, Python (Selenium), OpenAI API, web scraping"
   },
   {
     title: "TransformoDocs",

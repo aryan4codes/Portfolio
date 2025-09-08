@@ -36,9 +36,9 @@ export function Timeline({ items, title, className }: TimelineProps) {
         </h3>
       )}
 
-      <div className="relative ml-4 md:ml-6">
+      <div className="relative pl-6 md:pl-8">
         <motion.div
-          className="absolute left-0 top-0 bottom-0 w-0.5 bg-border"
+          className="absolute left-3 top-0 bottom-0 w-0.5 bg-border"
           style={{ scaleY: scrollYProgress, transformOrigin: "top" }}
         />
 
@@ -57,7 +57,7 @@ export function Timeline({ items, title, className }: TimelineProps) {
               <div className="flex items-center mb-2 md:mb-0">
                 <div 
                   className={cn(
-                    "absolute w-4 h-4 rounded-full border-2 border-background left-0 -translate-x-[9px] flex items-center justify-center", 
+                    "absolute w-4 h-4 rounded-full border-2 border-background left-3 -translate-x-1/2 flex items-center justify-center", 
                     item.color || "bg-primary"
                   )}
                 >

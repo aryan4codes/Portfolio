@@ -33,13 +33,16 @@ const Contact = () => {
       const success = await sendContactForm({ name, email, message });
       
       if (success) {
-        toast.success('Message sent successfully!');
+        toast.success('🎉 Message sent successfully! I\'ll get back to you soon.', {
+          description: 'You should receive a confirmation email shortly.',
+          duration: 6000,
+        });
         // Reset form fields after successful submission
         setName('');
         setEmail('');
         setMessage('');
       } else {
-        toast.error('Failed to send message. Please try again later.');
+        toast.error('❌ Failed to send message. Please try again later.');
       }
     } catch (error) {
       console.error('Error sending message:', error);

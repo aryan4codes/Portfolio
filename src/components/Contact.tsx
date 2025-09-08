@@ -16,14 +16,29 @@ const Contact = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    // Basic validation
-    if (!name || !email || !message) {
-      toast.error('Please fill in all fields');
+    // Enhanced validation
+    if (!name.trim()) {
+      toast.error('📝 Please enter your name');
       return;
     }
 
-    if (!email.includes('@')) {
-      toast.error('Please enter a valid email address');
+    if (!email.trim()) {
+      toast.error('📧 Please enter your email address');
+      return;
+    }
+
+    if (!email.includes('@') || !email.includes('.')) {
+      toast.error('📧 Please enter a valid email address');
+      return;
+    }
+
+    if (!message.trim()) {
+      toast.error('💬 Please enter your message');
+      return;
+    }
+
+    if (message.trim().length < 10) {
+      toast.error('💬 Please write a more detailed message (at least 10 characters)');
       return;
     }
 
@@ -46,7 +61,10 @@ const Contact = () => {
       }
     } catch (error) {
       console.error('Error sending message:', error);
-      toast.error('Failed to send message. Please try again later.');
+      toast.error('❌ Something went wrong. Please try again later.', {
+        description: 'If the problem persists, you can reach me directly at av.rajpurkar@gmail.com',
+        duration: 8000,
+      });
     } finally {
       setLoading(false);
     }
@@ -134,7 +152,17 @@ const Contact = () => {
                   />
                 </div>
                 <Button type="submit" className="w-full" disabled={loading}>
-                  {loading ? 'Sending...' : 'Send Message'}
+                  {loading ? (
+                    <>
+                      <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
+                      Sending...
+                    </>
+                  ) : (
+                    <>
+                      <Mail className="h-4 w-4 mr-2" />
+                      Send Message
+                    </>
+                  )}
                 </Button>
               </form>
             </CardContent>

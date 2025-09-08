@@ -1,34 +1,54 @@
 interface ContactFormData {
-    name: string;
-    email: string;
-    message: string;
-  }
-  
-  export const sendContactForm = async (data: ContactFormData): Promise<boolean> => {
-    try {
-      // The API endpoint will be relative to your domain, e.g., /api/contact
-      // This works well with platforms like Vercel or Netlify that serve functions from an /api directory.
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
+  name: string;
+  email: string;
+  message: string;
+}
+
+interface ApiResponse {
+  success: boolean;
+  message?: string;
+  error?: string;
+  details?: string;
+}
+
+export const sendContactForm = async (data: ContactFormData): Promise<boolean> => {
+  try {
+    // Sanitize data before sending
+    const sanitizedData = {
+      name: data.name.trim(),
+      email: data.email.trim().toLowerCase(),
+      message: data.message.trim(),
+    };
+
+    const response = await fetch('/api/contact', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(sanitizedData),
+    });
+
+    const result: ApiResponse = await response.json();
+
+    if (!response.ok) {
+      console.error('API Error:', {
+        status: response.status,
+        statusText: response.statusText,
+        error: result.error,
+        details: result.details
       });
-  
-      if (!response.ok) {
-        // Try to parse error message from API response
-        const errorResult = await response.json().catch(() => ({ error: 'Unknown server error' }));
-        console.error('API Error:', response.status, errorResult.error);
-        // You might want to throw an error with errorResult.error to be caught by the component
-        // For now, just returning false as per the original structure.
-        return false;
-      }
-  
-      const result = await response.json();
-      return result.success === true; // Ensure it explicitly checks for true
-    } catch (error) {
-      console.error('Error sending contact form:', error);
       return false;
     }
-  };
+
+    if (result.success) {
+      console.log('Email sent successfully:', result.message);
+      return true;
+    } else {
+      console.error('Email sending failed:', result.error);
+      return false;
+    }
+  } catch (error) {
+    console.error('Network or parsing error:', error);
+    return false;
+  }
+};

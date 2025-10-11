@@ -3,15 +3,15 @@
 import React from "react";
 import { FloatingDock } from "./custom-floating-dock";
 import {
-  IconBrandGithub,
-  IconBrandLinkedin,
-  IconBriefcase,
-  IconCode,
-  IconHome,
-  IconMail,
-  IconUser,
-  IconBrain,
-} from "@tabler/icons-react";
+  Github,
+  Linkedin,
+  Briefcase,
+  Code,
+  Home,
+  Mail,
+  User,
+  Brain,
+} from "lucide-react";
 
 export default function FloatingNav() {
   const scrollToSection = (id: string) => {
@@ -27,7 +27,7 @@ export default function FloatingNav() {
     {
       title: "Home",
       icon: (
-        <IconHome className="h-full w-full text-primary" />
+        <Home className="h-full w-full text-primary" />
       ),
       href: "#",
       onClick: () => scrollToSection('top'),
@@ -35,7 +35,7 @@ export default function FloatingNav() {
     {
       title: "About",
       icon: (
-        <IconUser className="h-full w-full text-primary" />
+        <User className="h-full w-full text-primary" />
       ),
       href: "#about",
       onClick: () => scrollToSection('about'),
@@ -43,7 +43,7 @@ export default function FloatingNav() {
     {
       title: "Projects",
       icon: (
-        <IconCode className="h-full w-full text-primary" />
+        <Code className="h-full w-full text-primary" />
       ),
       href: "#projects",
       onClick: () => scrollToSection('projects'),
@@ -51,7 +51,7 @@ export default function FloatingNav() {
     {
       title: "Experience",
       icon: (
-        <IconBriefcase className="h-full w-full text-primary" />
+        <Briefcase className="h-full w-full text-primary" />
       ),
       href: "#experience",
       onClick: () => scrollToSection('experience'),
@@ -59,7 +59,7 @@ export default function FloatingNav() {
     {
       title: "Skills",
       icon: (
-        <IconBrain className="h-full w-full text-primary" />
+        <Brain className="h-full w-full text-primary" />
       ),
       href: "#about",
       onClick: () => scrollToSection('about'),
@@ -67,7 +67,7 @@ export default function FloatingNav() {
     {
       title: "Contact",
       icon: (
-        <IconMail className="h-full w-full text-primary" />
+        <Mail className="h-full w-full text-primary" />
       ),
       href: "#contact",
       onClick: () => scrollToSection('contact'),
@@ -75,7 +75,7 @@ export default function FloatingNav() {
     {
       title: "GitHub",
       icon: (
-        <IconBrandGithub className="h-full w-full text-primary" />
+        <Github className="h-full w-full text-primary" />
       ),
       href: "https://github.com/aryan4codes",
       target: "_blank",
@@ -83,7 +83,7 @@ export default function FloatingNav() {
     {
       title: "LinkedIn",
       icon: (
-        <IconBrandLinkedin className="h-full w-full text-primary" />
+        <Linkedin className="h-full w-full text-primary" />
       ),
       href: "https://linkedin.com/in/aryan-rajpurkar",
       target: "_blank",

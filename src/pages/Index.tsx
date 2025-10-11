@@ -1,12 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, lazy, Suspense } from 'react';
 import LoadingScreen from '@/components/LoadingScreen';
 import Header from '@/components/Header';
 import Hero from '@/components/Hero';
-import Projects from '@/components/Projects';
-import About from '@/components/About';
-import Contact from '@/components/Contact';
-import Footer from '@/components/Footer';
-import FloatingNav from '@/components/Navigation/FloatingNav';
+
+// Lazy load non-critical components
+const Projects = lazy(() => import('@/components/Projects'));
+const About = lazy(() => import('@/components/About'));
+const Contact = lazy(() => import('@/components/Contact'));
+const Footer = lazy(() => import('@/components/Footer'));
+const FloatingNav = lazy(() => import('@/components/Navigation/FloatingNav'));
 
 const Index = () => {
   const [loading, setLoading] = useState(true);
@@ -37,12 +39,22 @@ const Index = () => {
         <Header />
         <main>
           <Hero />
-          <Projects />
-          <About />
-          <Contact />
+          <Suspense fallback={<div className="flex justify-center items-center py-16"><div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div></div>}>
+            <Projects />
+          </Suspense>
+          <Suspense fallback={<div className="flex justify-center items-center py-16"><div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div></div>}>
+            <About />
+          </Suspense>
+          <Suspense fallback={<div className="flex justify-center items-center py-16"><div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div></div>}>
+            <Contact />
+          </Suspense>
         </main>
-        <Footer />
-        <FloatingNav />
+        <Suspense fallback={null}>
+          <Footer />
+        </Suspense>
+        <Suspense fallback={null}>
+          <FloatingNav />
+        </Suspense>
       </div>
     </>
   );

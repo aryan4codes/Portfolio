@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Button } from '@/components/ui/button';
-import { ArrowDown } from 'lucide-react';
+import { ArrowDown, FileText } from 'lucide-react';
 import ImageCarousel from './ImageCarousel';
 import { TextGenerateEffect } from '@/components/ui/text-generate-effect';
 
@@ -10,6 +10,10 @@ const Hero = () => {
     if (projectsSection) {
       projectsSection.scrollIntoView({ behavior: 'smooth' });
     }
+  };
+
+  const openResume = () => {
+    window.open('/resume', '_blank');
   };
 
   return (
@@ -32,13 +36,21 @@ const Hero = () => {
               I'm a passionate developer specializing in AI-powered applications, data analytics, and full-stack development.
               From federated learning to real-time analytics, I build solutions that make a difference.
             </p>
-            <div className="mb-8 md:mb-0">
+            <div className="flex flex-col sm:flex-row gap-4 mb-8 md:mb-0">
               <Button 
                 onClick={scrollToProjects} 
                 className="text-base group flex items-center gap-2"
               >
                 View my work
                 <ArrowDown className="w-4 h-4 transition-transform group-hover:translate-y-1" />
+              </Button>
+              <Button 
+                onClick={openResume} 
+                variant="outline"
+                className="text-base group flex items-center gap-2"
+              >
+                <FileText className="w-4 h-4" />
+                My Resume
               </Button>
             </div>
           </div>

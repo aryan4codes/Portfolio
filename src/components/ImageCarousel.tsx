@@ -92,6 +92,8 @@ const ImageCarousel = () => {
               src={images[currentIndex].src}
               alt={images[currentIndex].alt}
               className="w-full h-full object-cover"
+              loading="lazy"
+              decoding="async"
             />
             <div className="carousel-caption justify-center">
               <span className="bg-black/70 backdrop-blur-sm px-3 py-2 rounded text-sm md:text-lg inline-block text-center justify-center">

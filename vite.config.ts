@@ -19,4 +19,21 @@ export default defineConfig(({ mode }) => ({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          // Bundle all icon libraries together
+          'icons': ['lucide-react', '@tabler/icons-react'],
+          // Bundle UI components together
+          'ui': ['@radix-ui/react-dialog', '@radix-ui/react-toast', '@radix-ui/react-tabs'],
+          // Bundle animation libraries
+          'animations': ['framer-motion', 'motion'],
+          // Bundle utilities
+          'utils': ['class-variance-authority', 'clsx', 'tailwind-merge'],
+        },
+      },
+    },
+    chunkSizeWarningLimit: 1000,
+  },
 }));

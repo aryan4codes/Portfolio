@@ -129,6 +129,17 @@ const RichTextEditor: React.FC<RichTextEditorProps> = ({
     },
   });
 
+  // Update editor content when prop changes (for edit mode)
+  React.useEffect(() => {
+    if (editor && content && content !== editor.getHTML()) {
+      // Only update if content is different to avoid unnecessary updates
+      const currentContent = editor.getHTML();
+      if (content !== currentContent) {
+        editor.commands.setContent(content, false); // false = don't emit update event
+      }
+    }
+  }, [content, editor]);
+
   const handleImageUpload = async (file: File) => {
     if (!isImageFile(file)) {
       toast({
@@ -139,11 +150,11 @@ const RichTextEditor: React.FC<RichTextEditorProps> = ({
       return;
     }
 
-    // Check file size (max 10MB)
+    // Check file size (max 10MB before compression)
     if (file.size > 10 * 1024 * 1024) {
       toast({
         title: 'File too large',
-        description: 'Image must be less than 10MB',
+        description: 'Image must be less than 10MB. Large images will be automatically compressed.',
         variant: 'destructive',
       });
       return;
@@ -178,7 +189,7 @@ const RichTextEditor: React.FC<RichTextEditorProps> = ({
         
         toast({
           title: 'Success',
-          description: 'Image uploaded successfully',
+          description: 'Image uploaded and compressed successfully',
         });
       })
       .catch((error: any) => {
@@ -194,9 +205,16 @@ const RichTextEditor: React.FC<RichTextEditorProps> = ({
           editor?.commands.setContent(newHtml);
         }
         
+        // Provide more helpful error messages
+        let errorMessage = error.message || 'Failed to upload image. Please try again.';
+        
+        if (errorMessage.includes('quota') || errorMessage.includes('storage')) {
+          errorMessage = 'Storage quota exceeded. Please delete old images or upgrade your Firebase plan. Images are now automatically compressed to save space.';
+        }
+        
         toast({
           title: 'Upload failed',
-          description: error.message || 'Failed to upload image. Please try again.',
+          description: errorMessage,
           variant: 'destructive',
         });
       })

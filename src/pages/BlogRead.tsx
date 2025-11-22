@@ -9,7 +9,7 @@ import { getPostById, deletePost } from '@/lib/blogService';
 import { BlogPost } from '@/types/blog';
 import { getCurrentUser, isAuthor } from '@/lib/auth';
 import { toast } from '@/hooks/use-toast';
-import { Copy, Trash2, Loader2 } from 'lucide-react';
+import { Copy, Trash2, Loader2, Edit } from 'lucide-react';
 import {
   AlertDialog,
   AlertDialogAction,
@@ -152,24 +152,34 @@ const BlogRead = () => {
                 Copy Link
               </Button>
               {isAuthorized && post.authorId === getCurrentUser()?.uid && (
-                <Button
-                  variant="destructive"
-                  onClick={() => setShowDeleteDialog(true)}
-                  className="flex items-center gap-2"
-                  disabled={deleteMutation.isPending}
-                >
-                  {deleteMutation.isPending ? (
-                    <>
-                      <Loader2 className="w-4 h-4 animate-spin" />
-                      Deleting...
-                    </>
-                  ) : (
-                    <>
-                      <Trash2 className="w-4 h-4" />
-                      Delete
-                    </>
-                  )}
-                </Button>
+                <>
+                  <Button
+                    variant="outline"
+                    onClick={() => navigate(`/blogs/write?edit=${postId}`)}
+                    className="flex items-center gap-2"
+                  >
+                    <Edit className="w-4 h-4" />
+                    Edit
+                  </Button>
+                  <Button
+                    variant="destructive"
+                    onClick={() => setShowDeleteDialog(true)}
+                    className="flex items-center gap-2"
+                    disabled={deleteMutation.isPending}
+                  >
+                    {deleteMutation.isPending ? (
+                      <>
+                        <Loader2 className="w-4 h-4 animate-spin" />
+                        Deleting...
+                      </>
+                    ) : (
+                      <>
+                        <Trash2 className="w-4 h-4" />
+                        Delete
+                      </>
+                    )}
+                  </Button>
+                </>
               )}
             </div>
           </div>

@@ -5,7 +5,18 @@ import Underline from '@tiptap/extension-underline';
 import TextAlign from '@tiptap/extension-text-align';
 import Placeholder from '@tiptap/extension-placeholder';
 import Image from '@tiptap/extension-image';
+import Link from '@tiptap/extension-link';
 import { Button } from '@/components/ui/button';
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+} from '@/components/ui/dialog';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
 import {
   Bold,
   Italic,
@@ -23,6 +34,7 @@ import {
   AlignRight,
   Image as ImageIcon,
   Loader2,
+  Link as LinkIcon,
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { uploadImage, isImageFile, fileToDataURL } from '@/lib/imageService';
@@ -41,6 +53,9 @@ const RichTextEditor: React.FC<RichTextEditorProps> = ({
 }) => {
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [isUploading, setIsUploading] = useState(false);
+  const [isLinkDialogOpen, setIsLinkDialogOpen] = useState(false);
+  const [linkUrl, setLinkUrl] = useState('');
+  const [linkText, setLinkText] = useState('');
 
   const editor = useEditor({
     extensions: [
@@ -60,6 +75,12 @@ const RichTextEditor: React.FC<RichTextEditorProps> = ({
         inline: true,
         allowBase64: true, // Allow base64 for immediate preview
       }),
+      Link.configure({
+        openOnClick: false,
+        HTMLAttributes: {
+          class: 'text-primary underline hover:text-primary/80',
+        },
+      }),
     ],
     content,
     onUpdate: ({ editor }) => {
@@ -68,6 +89,15 @@ const RichTextEditor: React.FC<RichTextEditorProps> = ({
     editorProps: {
       attributes: {
         class: 'prose prose-lg dark:prose-invert max-w-none focus:outline-none min-h-[500px] px-4 py-3 font-serif text-lg leading-relaxed',
+      },
+      handleKeyDown: (view, event) => {
+        // Ctrl+K or Cmd+K to add link
+        if ((event.ctrlKey || event.metaKey) && event.key === 'k') {
+          event.preventDefault();
+          handleLinkClick();
+          return true;
+        }
+        return false;
       },
       handlePaste: (view, event) => {
         const items = Array.from(event.clipboardData?.items || []);
@@ -184,6 +214,59 @@ const RichTextEditor: React.FC<RichTextEditorProps> = ({
     if (fileInputRef.current) {
       fileInputRef.current.value = '';
     }
+  };
+
+  const handleLinkClick = () => {
+    const { from, to } = editor!.state.selection;
+    const selectedText = editor!.state.doc.textBetween(from, to);
+    
+    // Check if there's already a link at the selection
+    const attrs = editor!.getAttributes('link');
+    if (attrs.href) {
+      setLinkUrl(attrs.href);
+      setLinkText(selectedText || attrs.href);
+    } else {
+      setLinkUrl('');
+      setLinkText(selectedText);
+    }
+    
+    setIsLinkDialogOpen(true);
+  };
+
+  const handleAddLink = () => {
+    if (!linkUrl.trim()) {
+      toast({
+        title: 'Invalid URL',
+        description: 'Please enter a valid URL',
+        variant: 'destructive',
+      });
+      return;
+    }
+
+    // Ensure URL has protocol
+    let url = linkUrl.trim();
+    if (!url.match(/^https?:\/\//)) {
+      url = `https://${url}`;
+    }
+
+    if (linkText.trim()) {
+      // Replace selected text with link
+      editor?.chain().focus().insertContent(`<a href="${url}">${linkText}</a>`).run();
+    } else {
+      // Insert link at cursor
+      editor?.chain().focus().setLink({ href: url }).run();
+    }
+
+    setIsLinkDialogOpen(false);
+    setLinkUrl('');
+    setLinkText('');
+  };
+
+  const handleRemoveLink = () => {
+    editor?.chain().focus().unsetLink().run();
+    setIsLinkDialogOpen(false);
+    setLinkUrl('');
+    setLinkText('');
   };
 
   if (!editor) {
@@ -317,6 +400,17 @@ const RichTextEditor: React.FC<RichTextEditorProps> = ({
           </ToolbarButton>
         </div>
 
+        {/* Link */}
+        <div className="flex items-center gap-1 border-r pr-2 mr-2">
+          <ToolbarButton
+            onClick={handleLinkClick}
+            isActive={editor.isActive('link')}
+            title="Insert Link (Ctrl+K)"
+          >
+            <LinkIcon className="w-4 h-4" />
+          </ToolbarButton>
+        </div>
+
         {/* Image Upload */}
         <div className="flex items-center gap-1 border-r pr-2 mr-2">
           <input
@@ -362,6 +456,68 @@ const RichTextEditor: React.FC<RichTextEditorProps> = ({
       <div className="min-h-[500px] max-h-[800px] overflow-y-auto">
         <EditorContent editor={editor} />
       </div>
+
+      {/* Link Dialog */}
+      <Dialog open={isLinkDialogOpen} onOpenChange={setIsLinkDialogOpen}>
+        <DialogContent className="sm:max-w-md">
+          <DialogHeader>
+            <DialogTitle>Add Link</DialogTitle>
+            <DialogDescription>
+              Enter the URL and optional link text. If no text is provided, the URL will be used.
+            </DialogDescription>
+          </DialogHeader>
+          <div className="space-y-4 py-4">
+            <div className="space-y-2">
+              <Label htmlFor="link-url">URL</Label>
+              <Input
+                id="link-url"
+                type="url"
+                placeholder="https://example.com"
+                value={linkUrl}
+                onChange={(e) => setLinkUrl(e.target.value)}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter') {
+                    e.preventDefault();
+                    handleAddLink();
+                  }
+                }}
+              />
+            </div>
+            <div className="space-y-2">
+              <Label htmlFor="link-text">Link Text (optional)</Label>
+              <Input
+                id="link-text"
+                type="text"
+                placeholder="Click here"
+                value={linkText}
+                onChange={(e) => setLinkText(e.target.value)}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter') {
+                    e.preventDefault();
+                    handleAddLink();
+                  }
+                }}
+              />
+            </div>
+          </div>
+          <DialogFooter>
+            {editor.isActive('link') && (
+              <Button
+                variant="destructive"
+                onClick={handleRemoveLink}
+              >
+                Remove Link
+              </Button>
+            )}
+            <Button variant="outline" onClick={() => setIsLinkDialogOpen(false)}>
+              Cancel
+            </Button>
+            <Button onClick={handleAddLink}>
+              {editor.isActive('link') ? 'Update Link' : 'Add Link'}
+            </Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };

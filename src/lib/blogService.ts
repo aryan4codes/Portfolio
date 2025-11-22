@@ -79,3 +79,4 @@ export async function deletePost(id: string, authorId: string): Promise<void> {
   await deleteDoc(doc(db, POSTS_COLLECTION, id));
 }
 
+

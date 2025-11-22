@@ -92,3 +92,4 @@ const LoginModal: React.FC<LoginModalProps> = ({ open, onOpenChange }) => {
 
 export default LoginModal;
 
+

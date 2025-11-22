@@ -275,6 +275,23 @@
   text-align: right;
 }
 
+/* Links */
+.blog-content a {
+  color: hsl(var(--primary));
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: opacity 0.2s;
+}
+
+.blog-content a:hover {
+  opacity: 0.8;
+}
+
+.blog-content a:visited {
+  color: hsl(var(--primary));
+  opacity: 0.9;
+}
+
 /* Images */
 .blog-content img {
   max-width: 100%;
@@ -363,6 +380,17 @@
 .ProseMirror img.ProseMirror-selectednode {
   outline: 2px solid hsl(var(--primary));
   outline-offset: 2px;
+}
+
+.ProseMirror a {
+  color: hsl(var(--primary));
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  cursor: pointer;
+}
+
+.ProseMirror a:hover {
+  opacity: 0.8;
 }
 
 /* Medium-style centered layout */

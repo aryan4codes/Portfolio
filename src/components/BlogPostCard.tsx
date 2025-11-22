@@ -43,3 +43,4 @@ const BlogPostCard: React.FC<BlogPostCardProps> = ({ post }) => {
 
 export default BlogPostCard;
 
+

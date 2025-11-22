@@ -66,6 +66,7 @@ export default {
 			},
 			fontFamily: {
 				sans: ['Inter', 'sans-serif'],
+				serif: ['Georgia', '"Times New Roman"', 'serif'],
 				mono: ['JetBrains Mono', 'monospace'],
 			},
 			borderRadius: {

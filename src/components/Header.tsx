@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Github, Linkedin, Mail } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import ThemeToggle from './ThemeToggle';
@@ -7,10 +8,15 @@ const Header = () => {
   return (
     <header className="py-6 w-full">
       <div className="container flex justify-between items-center">
-        <div className="font-mono font-medium text-lg">
+        <Link to="/" className="font-mono font-medium text-lg">
           <span className="gradient-text animate-gradient-shift text-2xl">aryan</span>
-        </div>
+        </Link>
         <div className="flex items-center gap-2 sm:gap-4">
+          <Link to="/blogs">
+            <Button variant="ghost" className="hidden sm:inline-flex">
+              Blog
+            </Button>
+          </Link>
           <ThemeToggle />
           <a href="https://github.com/aryan4codes" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
             <Button variant="ghost" size="icon" className="rounded-full">

@@ -1,5 +1,4 @@
-import React, { useState, useEffect, lazy, Suspense } from 'react';
-import LoadingScreen from '@/components/LoadingScreen';
+import React, { useEffect, lazy, Suspense } from 'react';
 import Header from '@/components/Header';
 import Hero from '@/components/Hero';
 
@@ -11,52 +10,34 @@ const Footer = lazy(() => import('@/components/Footer'));
 const FloatingNav = lazy(() => import('@/components/Navigation/FloatingNav'));
 
 const Index = () => {
-  const [loading, setLoading] = useState(true);
-
   useEffect(() => {
     // Apply dark mode as default on initial load
     document.documentElement.classList.add('dark');
     localStorage.setItem('theme', 'dark');
-    
-    // You could add additional loading logic here if needed
-    const timer = setTimeout(() => {
-      // This is a fallback in case onComplete doesn't fire
-      setLoading(false);
-    }, 6000);
-    
-    return () => clearTimeout(timer);
   }, []);
 
-  const handleLoadingComplete = () => {
-    setLoading(false);
-  };
-
   return (
-    <>
-      {loading && <LoadingScreen onComplete={handleLoadingComplete} />}
-      
-      <div className={`min-h-screen flex flex-col transition-opacity duration-500 ${loading ? 'opacity-0' : 'opacity-100'}`}>
-        <Header />
-        <main>
-          <Hero />
-          <Suspense fallback={<div className="flex justify-center items-center py-16"><div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div></div>}>
-            <Projects />
-          </Suspense>
-          <Suspense fallback={<div className="flex justify-center items-center py-16"><div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div></div>}>
-            <About />
-          </Suspense>
-          <Suspense fallback={<div className="flex justify-center items-center py-16"><div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div></div>}>
-            <Contact />
-          </Suspense>
-        </main>
-        <Suspense fallback={null}>
-          <Footer />
+    <div className="min-h-screen flex flex-col">
+      <Header />
+      <main>
+        <Hero />
+        <Suspense fallback={<div className="flex justify-center items-center py-16"><div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div></div>}>
+          <Projects />
         </Suspense>
-        <Suspense fallback={null}>
-          <FloatingNav />
+        <Suspense fallback={<div className="flex justify-center items-center py-16"><div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div></div>}>
+          <About />
         </Suspense>
-      </div>
-    </>
+        <Suspense fallback={<div className="flex justify-center items-center py-16"><div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div></div>}>
+          <Contact />
+        </Suspense>
+      </main>
+      <Suspense fallback={null}>
+        <Footer />
+      </Suspense>
+      <Suspense fallback={null}>
+        <FloatingNav />
+      </Suspense>
+    </div>
   );
 };
 

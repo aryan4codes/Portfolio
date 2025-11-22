@@ -5,6 +5,9 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import Resume from "./pages/Resume";
+import Blogs from "./pages/Blogs";
+import BlogWrite from "./pages/BlogWrite";
+import BlogRead from "./pages/BlogRead";
 import NotFound from "./pages/NotFound";
 import { Analytics } from "@vercel/analytics/react";
 
@@ -19,6 +22,9 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/resume" element={<Resume />} />
+          <Route path="/blogs" element={<Blogs />} />
+          <Route path="/blogs/write" element={<BlogWrite />} />
+          <Route path="/blogs/read" element={<BlogRead />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

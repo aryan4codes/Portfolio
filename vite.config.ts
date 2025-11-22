@@ -24,7 +24,7 @@ export default defineConfig(({ mode }) => ({
       output: {
         manualChunks: {
           // Bundle all icon libraries together
-          'icons': ['lucide-react', '@tabler/icons-react'],
+          'icons': ['lucide-react'],
           // Bundle UI components together
           'ui': ['@radix-ui/react-dialog', '@radix-ui/react-toast', '@radix-ui/react-tabs'],
           // Bundle animation libraries

@@ -1,10 +1,8 @@
 import React from 'react';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Github, ExternalLink, Briefcase, Eye } from 'lucide-react';
+import { Github, ExternalLink, Briefcase } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import ProjectPreview from './ProjectPreview';
-import WebsiteThumbnail from './WebsiteThumbnail';
 
 interface Project {
   title: string;
@@ -75,6 +73,14 @@ const projects: Project[] = [
     technicalSkills: "Hugging Face, Python (Flask), MongoDB (GridFS), Clerk API, BM25, M2, Apache Kafka"
   },
   {
+    title: "Equitas",
+    description: "Enterprise AI safety layer for LLMs with multi-layer detection (toxicity, bias, hallucination, jailbreak) using custom transformer models (Detoxify, SHAP, LIME); no vendor lock-in",
+    type: "project",
+    tags: ["Python", "Hugging Face", "Detoxify", "SHAP", "LIME", "AI", "LLM", "Safety"],
+    live: "https://equitas.aryanrajpurkar.tech",
+    technicalSkills: "Hugging Face, Python (Flask), Detoxify, SHAP, LIME, Transformers"
+  },
+  {
     title: "Recrutr",
     description:
       "AI-based recruitment assistant. Built AI agents for candidate shortlisting, ranking, and interview scheduling, reducing screening time by 65% and improving SLA compliance by 35%. Implemented vector-based search and AI fit analysis with 92% precision for accurate, explainable recommendations, reducing data errors by 50%.",
@@ -116,43 +122,11 @@ const Projects = () => {
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
           {experiences.map((exp, index) => (
-            <Card key={index} className="border border-border bg-card/50 hover:bg-card/80 transition-all duration-300 overflow-hidden group">
-              {/* Website Thumbnail Preview for experiences with live URLs */}
-              {exp.live && (
-                <ProjectPreview
-                  title={exp.title}
-                  description={exp.description}
-                  tags={exp.tags}
-                  live={exp.live}
-                  technicalSkills={exp.technicalSkills}
-                >
-                  <div className="cursor-pointer">
-                    <WebsiteThumbnail 
-                      url={exp.live} 
-                      title={exp.title}
-                      className="m-4 mb-0"
-                    />
-                  </div>
-                </ProjectPreview>
-              )}
-              
-              <CardHeader className={exp.live ? "pt-4" : ""}>
+            <Card key={index} className="border border-border bg-card/50 hover:bg-card/80 transition-all duration-300 overflow-hidden">
+              <CardHeader>
                 <div className="flex items-center gap-2 mb-2">
                   <Briefcase className="h-4 w-4 text-muted-foreground" />
-                  <span className="text-muted-foreground">{exp.company}</span> 
-                  {exp.live && (
-                    <ProjectPreview
-                      title={exp.title}
-                      description={exp.description}
-                      tags={exp.tags}
-                      live={exp.live}
-                      technicalSkills={exp.technicalSkills}
-                    >
-                      <Button variant="ghost" size="sm" className="opacity-0 group-hover:opacity-100 transition-opacity ml-auto">
-                        <Eye className="h-4 w-4" />
-                      </Button>
-                    </ProjectPreview>
-                  )}
+                  <span className="text-muted-foreground">{exp.company}</span>
                 </div>
                 <CardTitle className="font-medium">{exp.title}</CardTitle>
                 <CardDescription className="text-muted-foreground mt-2 flex justify-between">
@@ -184,44 +158,10 @@ const Projects = () => {
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {projectItems.map((project, index) => (
-            <Card key={index} className="border border-border bg-card/50 hover:bg-card/80 transition-all duration-300 overflow-hidden group">
-              {/* Website Thumbnail Preview */}
-              {project.live && (
-                <ProjectPreview
-                  title={project.title}
-                  description={project.description}
-                  tags={project.tags}
-                  live={project.live}
-                  github={project.github}
-                  technicalSkills={project.technicalSkills}
-                >
-                  <div className="cursor-pointer">
-                    <WebsiteThumbnail 
-                      url={project.live} 
-                      title={project.title}
-                      className="m-4 mb-0"
-                    />
-                  </div>
-                </ProjectPreview>
-              )}
-              
-              <CardHeader className={project.live ? "pt-4" : ""}>
-                <CardTitle className="font-medium flex items-center justify-between">
+            <Card key={index} className="border border-border bg-card/50 hover:bg-card/80 transition-all duration-300 overflow-hidden">
+              <CardHeader>
+                <CardTitle className="font-medium">
                   {project.title}
-                  {project.live && (
-                    <ProjectPreview
-                      title={project.title}
-                      description={project.description}
-                      tags={project.tags}
-                      live={project.live}
-                      github={project.github}
-                      technicalSkills={project.technicalSkills}
-                    >
-                      <Button variant="ghost" size="sm" className="opacity-0 group-hover:opacity-100 transition-opacity">
-                        <Eye className="h-4 w-4" />
-                      </Button>
-                    </ProjectPreview>
-                  )}
                 </CardTitle>
                 <CardDescription className="text-muted-foreground mt-2">
                   {project.description}

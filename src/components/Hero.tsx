@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Button } from '@/components/ui/button';
-import { ArrowDown, FileText } from 'lucide-react';
+import { ArrowDown, Book, FileText } from 'lucide-react';
 import ImageCarousel from './ImageCarousel';
 import { TextGenerateEffect } from '@/components/ui/text-generate-effect';
 
@@ -43,6 +43,13 @@ const Hero = () => {
               >
                 View my work
                 <ArrowDown className="w-4 h-4 transition-transform group-hover:translate-y-1" />
+              </Button>
+              <Button 
+                onClick={() => window.location.href = '/blogs'}
+                className="text-base group flex items-center gap-2"
+              >
+                Blogs
+                <Book className="w-4 h-4 transition-transform group-hover:translate-y-1" />
               </Button>
               <Button 
                 onClick={openResume} 

@@ -11,6 +11,8 @@ interface AnimatedCounterProps {
   title: string;
   titleClassName?: string;
   symbol?: string;
+  /** When set, animates and formats as a fixed-point decimal (e.g. CGPA). */
+  decimals?: number;
 }
 
 export function AnimatedCounter({
@@ -21,6 +23,7 @@ export function AnimatedCounter({
   title,
   titleClassName = "",
   symbol = "",
+  decimals,
 }: AnimatedCounterProps) {
   const [displayValue, setDisplayValue] = useState(0);
   const controls = useAnimation();
@@ -32,7 +35,9 @@ export function AnimatedCounter({
     const updateValue = () => {
       const now = Date.now();
       const progress = Math.min((now - startTime) / (duration * 1000), 1);
-      const currentValue = Math.floor(progress * value);
+      const raw = progress * value;
+      const currentValue =
+        decimals !== undefined ? Number(raw.toFixed(decimals)) : Math.floor(raw);
 
       setDisplayValue(currentValue);
 
@@ -50,7 +55,7 @@ export function AnimatedCounter({
     });
 
     updateValue();
-  }, [value, duration, controls]);
+  }, [value, duration, decimals, controls]);
 
   return (
     <motion.div
@@ -61,7 +66,7 @@ export function AnimatedCounter({
       <span
         className={`text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/80 ${valueClassName}`}
       >
-        {displayValue}
+        {decimals !== undefined ? displayValue.toFixed(decimals) : displayValue}
         {symbol}
       </span>
       <span className={`text-center mt-2 text-muted-foreground ${titleClassName}`}>

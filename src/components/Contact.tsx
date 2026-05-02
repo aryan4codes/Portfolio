@@ -3,7 +3,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
-import { Github, Linkedin, Mail } from 'lucide-react';
+import { Github, Linkedin, Mail, Globe } from 'lucide-react';
 import { toast } from '@/components/ui/sonner';
 import { sendContactForm } from '@/lib/api';
 
@@ -106,8 +106,14 @@ const Contact = () => {
                   </a>
                 </div>
                 <div className="flex items-center gap-3">
+                  <Globe className="h-5 w-5 text-muted-foreground" />
+                  <a href="https://aryanrajpurkar.com" target="_blank" rel="noopener noreferrer" className="hover:underline">
+                    aryanrajpurkar.com
+                  </a>
+                </div>
+                <div className="flex items-center gap-3">
                   <span className="h-5 w-5 flex items-center justify-center text-muted-foreground">📱</span>
-                  <span>7718950601</span>
+                  <a href="tel:+917718950601" className="hover:underline">+91-7718950601</a>
                 </div>
                 <div className="flex items-center gap-3">
                   <span className="h-5 w-5 flex items-center justify-center text-muted-foreground">📍</span>

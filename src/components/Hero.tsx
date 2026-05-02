@@ -30,11 +30,11 @@ const Hero = () => {
               />
             </div>
             <h4 className="text-md md:text-xl lg:text-2xl mb-6 text-muted-foreground">
-              Building intelligent systems with AI, ML & Data Science.
+              Founder · Agentic AI · Data Platforms · RAG at scale.
             </h4>
             <p className="text-lg md:text-xl text-muted-foreground mb-8">
-              I'm a passionate developer specializing in AI-powered applications, data analytics, and full-stack development.
-              From federated learning to real-time analytics, I build solutions that make a difference.
+              I design autonomous, human-in-the-loop systems for enterprises—multi-agent workflows, GEO and citation strategy,
+              ETL and MCP-backed data planes, and production RAG with attribution—shipping measurable outcomes from procurement automation to hiring stacks.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 mb-8 md:mb-0">
               <Button 

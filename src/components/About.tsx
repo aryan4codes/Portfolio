@@ -2,9 +2,8 @@ import React, { useEffect } from 'react';
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { 
-  Code, School, Trophy, Users, Database, 
-  Cpu, Globe, GitBranch, Zap, Brain, 
-  BarChart, Terminal, Languages
+  School, Trophy, Users, Database, 
+  Globe, GitBranch, Zap, Brain, Languages
 } from 'lucide-react';
 
 import { Card, CardContent } from "@/components/ui/card";
@@ -13,8 +12,6 @@ import { SkillCard } from '@/components/ui/skill-card';
 import { Timeline } from '@/components/ui/timeline';
 import { AnimatedCounter } from '@/components/ui/animated-counter';
 import { SectionDivider } from '@/components/ui/section-divider';
-import { cn } from '@/lib/utils';
-
 // Profile image
 import speechImg from '@/assets/speech.jpg';
 
@@ -66,7 +63,7 @@ const About = () => {
                 <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/70 flex items-end p-6">
                   <div className="text-white">
                     <h3 className="text-xl font-bold">Aryan Rajpurkar</h3>
-                    <p className="text-white/80 text-sm">AI & Full-Stack Developer</p>
+                    <p className="text-white/80 text-sm">Founder · AI & Data Platforms</p>
                   </div>
                 </div>
               </div>
@@ -76,7 +73,7 @@ const About = () => {
                   building intelligent systems that solve real-world problems.
                 </p>
                 <div className="grid grid-cols-2 gap-4 mt-6">
-                  <AnimatedCounter value={9.2} symbol="" title="CGPA" />
+                  <AnimatedCounter value={9.34} decimals={2} symbol="" title="CGPA" />
                   <AnimatedCounter value={200} symbol="+" title="Students Mentored" />
                 </div>
               </CardContent>
@@ -94,9 +91,10 @@ const About = () => {
                   
                   <TabsContent value="personal" className="space-y-6">
                     <p className="text-lg">
-                      I'm currently pursuing my B.Tech in Computer Science and Engineering (Data Science) at D.J. Sanghvi College of Engineering.
-                      I love building intelligent systems that solve real-world problems, with experience across various domains including
-                      HR tech, document processing, social media analytics, and fintech.
+                      I'm pursuing my B.Tech in Computer Science and Engineering (Data Science) at D.J. Sanghvi College of Engineering
+                      while founding <strong className="font-semibold text-foreground">Aretis Labs</strong>, an AI automation consultancy for autonomous,
+                      human-in-the-loop enterprise systems. I build data platforms, agentic workflows, and RAG-heavy products across HR tech,
+                      document intelligence, marketing automation, and regulated deployments.
                     </p>
                     
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -126,7 +124,7 @@ const About = () => {
                         </div>
                         <div>
                           <p className="text-sm text-muted-foreground">Leadership</p>
-                          <p className="font-medium">Society of Data Science - India</p>
+                          <p className="font-medium">Chairperson, DJS-S4DS (India)</p>
                         </div>
                       </div>
                       
@@ -147,7 +145,7 @@ const About = () => {
                       items={[
                         {
                           title: 'D.J. Sanghvi College of Engineering',
-                          subtitle: 'B.Tech in Computer Science and Engineering (Data Science) - 9.2 CGPA',
+                          subtitle: 'B.Tech in Computer Science and Engineering (Data Science) — 9.34 / 10.0 CGPA',
                           date: '2022 - 2026',
                           color: 'bg-blue-500',
                           icon: <School size={10} />
@@ -174,9 +172,9 @@ const About = () => {
                       <Timeline 
                         items={[
                           {
-                            title: 'Chairperson - DJS-S4DS',
-                            subtitle: 'Society of Data Science - India',
-                            description: 'Designed and executed technical workshops and bootcamps, mentored 200+ students in machine learning, AI and data analytics',
+                            title: 'Chairperson, DJS-S4DS',
+                            subtitle: 'National Data Science Committee of India · Society of Data Science',
+                            description: 'Mentored 200+ students across ML, AI, and data analytics through workshops and national initiatives',
                             date: '07/2024 - Present',
                             color: 'bg-indigo-500',
                             icon: <Users size={10} />
@@ -190,43 +188,31 @@ const About = () => {
                     <Timeline 
                       items={[
                         {
-                          title: 'Winner at Smart India Hackathon (SIH) 2024',
-                          subtitle: 'National Hackathon hosted by Government of India',
+                          title: 'Winner, Smart India Hackathon 2024',
+                          subtitle: 'Government of India national hackathon · ₹1 Lakh prize',
                           date: '2024',
                           color: 'bg-green-500',
                         },
                         {
-                          title: 'Selected Scholar, Amazon ML Summer School 2024',
-                          subtitle: 'Selected out of 61,000 participants',
+                          title: '5× National Hackathon Winner',
+                          subtitle: 'Cumulative awards worth ₹2 Lakh+ across competitions',
+                          date: '2023 — Present',
+                          color: 'bg-emerald-500',
+                        },
+                        {
+                          title: 'Amazon ML Summer School Scholar 2024',
+                          subtitle: 'Selected from 61,000+ participants nationwide',
                           date: '2024',
                           color: 'bg-yellow-500',
                         },
                         {
-                          title: 'Best Student Chair 2023',
-                          subtitle: 'Society of Data Science - India',
-                          date: '2023',
+                          title: 'Best Student Chair 2025',
+                          subtitle: 'Society of Data Science, India',
+                          date: '2025',
                           color: 'bg-purple-500',
                         },
                         {
-                          title: 'Winner at SYNERGY 1.0',
-                          subtitle: 'Hackathon hosted by DJSCE, Mumbai',
-                          date: '2023',
-                          color: 'bg-blue-500',
-                        },
-                        {
-                          title: '2nd Runner-Up at HACKNICHE 2.0',
-                          subtitle: 'Hackathon hosted by GDSC x Synapse at DJSCE Mumbai',
-                          date: '2023',
-                          color: 'bg-pink-500',
-                        },
-                        {
-                          title: '1st Runner-Up at Technovate',
-                          subtitle: 'Hackathon hosted by SPIT Mumbai',
-                          date: '2023',
-                          color: 'bg-red-500',
-                        },
-                        {
-                          title: 'National Finalist (Top 20 - India), Regional Winner (Mumbai)',
+                          title: 'National Finalist (Top 20 — India), Regional Winner (Mumbai)',
                           subtitle: 'Microsoft Office Specialist Championship',
                           date: '2022',
                           color: 'bg-cyan-500',
@@ -246,23 +232,23 @@ const About = () => {
             <SkillCard
               title="Languages"
               icon={<Languages size={24} />}
-              skills={['Python', 'Java', 'C/C++', 'JavaScript/TypeScript', 'SQL']}
+              skills={['Python', 'Java', 'JavaScript', 'TypeScript', 'SQL']}
               iconClassName="bg-blue-500/10 text-blue-500"
               borderColor="border-blue-500/20"
             />
             
             <SkillCard
-              title="Web Development"
+              title="Web & APIs"
               icon={<Globe size={24} />}
-              skills={['Flask', 'React', 'Next.js', 'SpringBoot', 'RESTful API']}
+              skills={['Flask', 'FastAPI', 'React', 'Next.js', 'Spring Boot', 'REST', 'WebSockets']}
               iconClassName="bg-indigo-500/10 text-indigo-500"
               borderColor="border-indigo-500/20"
             />
             
             <SkillCard
-              title="Data & ML"
+              title="AI / Agents"
               icon={<Brain size={24} />}
-              skills={['AWS (EC2, Athena)', 'PowerBI', 'TensorFlow', 'Computer Vision', 'Generative AI', 'Federated Learning']}
+              skills={['LangChain', 'LangGraph', 'CrewAI', 'AutoGen', 'RAG', 'Transformers', 'MCP', 'Generative AI']}
               iconClassName="bg-purple-500/10 text-purple-500"
               borderColor="border-purple-500/20"
             />
@@ -270,15 +256,15 @@ const About = () => {
             <SkillCard
               title="DevOps"
               icon={<GitBranch size={24} />}
-              skills={['Git', 'GitHub', 'Docker', 'Kubernetes', 'CI/CD', 'Microservices']}
+              skills={['Docker', 'Kubernetes', 'Git', 'CI/CD', 'Microservices']}
               iconClassName="bg-green-500/10 text-green-500"
               borderColor="border-green-500/20"
             />
             
             <SkillCard
-              title="Big Data"
+              title="Cloud & Data"
               icon={<Database size={24} />}
-              skills={['GCP (Cloud Run)', 'Apache (Kafka Spark Airflow)', 'MongoDB', 'Redis', 'Supabase']}
+              skills={['AWS (ECS, S3, RDS, Glue)', 'GCP Cloud Run', 'Kafka · Spark · Airflow', 'Neo4j · FAISS · ChromaDB', 'Supabase']}
               iconClassName="bg-orange-500/10 text-orange-500"
               borderColor="border-orange-500/20"
             />
@@ -306,15 +292,16 @@ const About = () => {
             </div>
             <div className="bg-gradient-to-br from-card to-muted/30 p-6 rounded-xl border border-border shadow-sm">
               <AnimatedCounter 
-                value={7} 
-                symbol="+" 
-                title="Hackathon Awards" 
+                value={5} 
+                symbol="" 
+                title="National Hackathon Wins" 
                 valueClassName="text-3xl md:text-4xl"
               />
             </div>
             <div className="bg-gradient-to-br from-card to-muted/30 p-6 rounded-xl border border-border shadow-sm">
               <AnimatedCounter 
-                value={9.2} 
+                value={9.34} 
+                decimals={2}
                 symbol="" 
                 title="CGPA" 
                 valueClassName="text-3xl md:text-4xl"

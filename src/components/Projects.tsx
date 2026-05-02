@@ -19,94 +19,99 @@ interface Project {
 
 const projects: Project[] = [
   {
-    title: "Data Engineering Intern",
-    company: "VisaFriendly",
+    title: "Founder",
+    company: "Aretis Labs",
     description:
-      "Developed real-time ETL pipelines processing 100K+ daily job entries, improving accuracy by 28% and reducing processing time by 40%. Built AI agents for resume and cover-letter generation with Crewai and n8n, automating ~8K documents monthly and improving interview response rates by 22%.",
-    date: "06/2025 - Present",
+      "Founded an AI automation consultancy building autonomous, human-in-the-loop systems for enterprise; scaled to 2L+ monthly revenue and 10+ production deployments in five months. Delivered AI-native marketplace and workflow automation (e.g. Polycab, Aerem Solar) with agents for procurement, supplier matching, and exception routing with full audit trails. Architected private on-prem RAG knowledge engines with source attribution; built GEO pipelines to improve brand citation rates across ChatGPT, Gemini, and Perplexity with share-of-voice KPIs.",
+    date: "01/2026 - Present",
     location: "India",
     type: "experience",
-    live: "https://visafriendly.com/",
-    tags: ["Data Engineering", "AWS", "Python", "SQL", "ETL", "AI"],
+    live: "https://aretislabs.com/",
+    tags: ["AI Automation", "LangGraph", "RAG", "FastAPI", "Next.js"],
     technicalSkills:
-      "AWS (ECS, ECR, CloudWatch, RDS), Python, SQL, Crewai, n8n, ETL Pipelines, Data Modeling, LLMs",
+      "Python, LangGraph, CrewAI, FastAPI, Next.js, PostgreSQL, Supabase, RAG, n8n, AWS",
   },
   {
-    title: "SDE (ML) Intern",
+    title: "Founding Engineer, Data Platforms",
+    company: "VisaFriendly",
+    description:
+      "Built the end-to-end data platform on AWS (ECS, CloudWatch, S3, RDS): ETL for 100K+ daily job entries with quality contracts and lineage—28% downstream accuracy gain and 40% faster processing. Multi-agent CrewAI + n8n pipeline with structured tools, retries, and rubric evaluation—8K docs/month automated, 22% better interview response rates. AI-native UGC pipeline with live market context, Arcads.ai avatar video, and auto-posting to Instagram, LinkedIn, and X. Exposed ETL as an MCP server for natural-language job-catalog and pipeline queries in Claude/Cursor.",
+    date: "06/2025 - Present",
+    location: "India (Remote)",
+    type: "experience",
+    live: "https://visafriendly.com/",
+    tags: ["Data Platform", "AWS", "ETL", "MCP", "Agents"],
+    technicalSkills:
+      "AWS (ECS, ECR, CloudWatch, S3, RDS), Python, SQL, CrewAI, n8n, Arcads.ai, MCP, ETL, LLMs",
+  },
+  {
+    title: "Founding Engineer, SDE (ML)",
     company: "Mantrika.ai",
-    description: "Led development of AI-powered HR recruitment platform as founding engineer, implementing avatar integration and database schemas with 40% improved performance.",
+    description:
+      "Founding engineer on the core AI HR platform—architecture, schema, and agentic infrastructure end to end. HeyGen-powered AI avatar interviews with rubric-based scoring. OpenCV proctoring with gaze tracking, anomaly flags, and tamper-resistant session logs. LangGraph workflows with LLM fallback routing—~40% latency improvement and ~20% lower cost per candidate selection.",
     date: "01/2025 - 08/2025",
     location: "India",
     type: "experience",
     live: "https://mantrika.ai/",
-    tags: ["Python", "React", "AI", "LangChain", "LangSmith", "MySQL", "Supabase", "AWS"],
-    technicalSkills: "MongoDB, Redis.js, LangChain, LangSmith, MySQL, Supabase, AWS (RedshiftJS, EC2, CloudWatch)"
+    tags: ["TypeScript", "Next.js", "LangGraph", "HeyGen", "OpenCV"],
+    technicalSkills:
+      "TypeScript, Next.js, LangGraph, LangChain, MySQL, Supabase, AWS, CrewAI, HeyGen, OpenCV",
   },
   {
-    title: "ML Engineer Intern",
-    company: "AI4EducationLabs",
-    description: "Developed an AI-driven assessment platform using item response theory and knowledge graphs, impacting 5,000+ students across 50 schools in India and Germany.",
+    title: "NLP (ML) Engineer Intern",
+    company: "AI4Education Labs",
+    description:
+      "Adaptive assessment combining IRT and knowledge graphs for skill gaps and difficulty—5,000+ students across 10+ schools. End-to-end NLG pipeline for personalized recommendations (entity extraction, concept-graph traversal, template-grounded generation) at ~95% accuracy; deployed on AWS EC2 with assets on S3.",
     date: "06/2024 - 07/2024",
-    location: "India",
+    location: "Germany (Remote)",
     type: "experience",
-    live: "https://ai4educationlabs.org/",
-    tags: ["Machine Learning", "Knowledge Graphs", "IRT", "Cloud", "AI"],
-    technicalSkills: "Knowledge Representation, Item Response Theory Research, AWS (S3, EC2)"
+    live: "https://ai4educationlabs.com/",
+    tags: ["NLP", "Knowledge Graphs", "IRT", "NLG", "AWS"],
+    technicalSkills:
+      "Python, NLP, Knowledge Graphs, Item Response Theory, AWS (S3, EC2), NLG, Transformers",
   },
   {
-    title: "Technical Lead",
-    company: "DrillDown",
-    description: "Single-handedly built e-menu system for WordPress, Wix, and Instagram, reducing audit times by 35% and improving analytics accuracy for FMCG industry clients by 50%.",
+    title: "Software Engineer Intern",
+    company: "Drilldown",
+    description:
+      "Deployed multimodal AI agents on Telegram, WhatsApp, and Instagram for FMCG retail audits—image parsing, tool calls, ~35% faster turnaround. Influencer marketing platform with Instagram Graph API and LangChain: embedding-based brand-fit scoring, BigQuery analytics, Cloud Run deployment. Prompt pipelines with structured schemas and retries for consistent JSON from LLMs.",
     date: "03/2024 - 08/2024",
     location: "India",
     type: "experience",
-    live: "https://drilldown.online/",
-    tags: ["Full-Stack", "Analytics", "Cloud", "AI"],
-    technicalSkills: "CI/CD Pipelines, GCP - BigQuery & Cloud Run, SQL, Large Language Models"
+    live: "https://drilldown.io/",
+    tags: ["LangChain", "GCP", "Agents", "Multimodal AI"],
+    technicalSkills:
+      "Python, LangChain, Generative AI, GCP (BigQuery, Cloud Run), SQL, Prompt Engineering, REST APIs",
   },
   {
-    title: "EduData",
-    description: "Intelligent Document Search and Management Platform. Manages and advises documents with AI indexing, machine-readable checks, and automated approval workflows.",
+    title: "Launchy",
+    description:
+      "AI-native content studio for creators: six CrewAI agents with Reddit and web-search grounding, retrieval quality gates, and abstention logic. Five-by-two angle/variation matrix with one-click publish to X, LinkedIn, and Instagram; DAG introspection for observability. Ten content blocks / nine templates with versioned prompts and JSON schemas; streamed FastAPI runs with per-node artifacts; Chroma RAG with relevance scoring.",
     type: "project",
-    tags: ["Python", "MongoDB", "AI"],
-    live: "https://edudata.aryanrajpurkar.tech",
-    technicalSkills: "Hugging Face, Python (Flask), MongoDB (GridFS), Clerk API, BM25, M2, Apache Kafka"
+    tags: ["CrewAI", "FastAPI", "ChromaDB", "React", "Agents"],
+    live: "https://launchy.aryanrajpurkar.com/",
+    technicalSkills:
+      "Python, CrewAI, ChromaDB, FastAPI, TypeScript, React, Vite, WebSockets, Serper API",
   },
   {
     title: "Equitas",
-    description: "Enterprise AI safety layer for LLMs with multi-layer detection (toxicity, bias, hallucination, jailbreak) using custom transformer models (Detoxify, SHAP, LIME); no vendor lock-in",
-    type: "project",
-    tags: ["Python", "Hugging Face", "Detoxify", "SHAP", "LIME", "AI", "LLM", "Safety"],
-    live: "https://equitas.aryanrajpurkar.tech",
-    technicalSkills: "Hugging Face, Python (Flask), Detoxify, SHAP, LIME, Transformers"
-  },
-  {
-    title: "Recrutr",
     description:
-      "AI-based recruitment assistant. Built AI agents for candidate shortlisting, ranking, and interview scheduling, reducing screening time by 65% and improving SLA compliance by 35%. Implemented vector-based search and AI fit analysis with 92% precision for accurate, explainable recommendations, reducing data errors by 50%.",
+      "Enterprise AI evaluation layer with multi-layer detection (toxicity, bias, hallucination, jailbreak) backed by fine-tuned ToxicBERT across 500+ adversarial tests. SHAP/LIME explainability via REST for audit trails; multi-tenant guardrails per tenant.",
     type: "project",
-    tags: ["AI", "Next.js", "TypeScript", "Supabase", "LangChain", "OpenAI", "AWS"],
-    live: "https://recrutr.aryanrajpurkar.tech",
+    tags: ["FastAPI", "PyTorch", "XAI", "LLM Safety"],
+    live: "https://equitas.aryanrajpurkar.com/",
     technicalSkills:
-      "Next.js, TypeScript, Supabase (pgvector), Vercel AI SDK, OpenAI GPT-4, LangChain, AWS"
+      "Python (FastAPI), React/TypeScript, MongoDB, PyTorch, Transformers, SHAP, LIME, Redis, Docker, LLMs",
   },
   {
-    title: "Scholr",
+    title: "Sahayak AI",
     description:
-      "AI-Powered Financial Aid Discovery and Application Platform. Matches student profiles against 10,000+ scholarships with 95% accuracy and automated verification. Features AI chat assistant, document optimization, success prediction models, and workflow management across $2.5M+ funding opportunities.",
+      "Metadata-first document intelligence: precedent relationship graphs for provenance, dependencies, and citation lineage across government documents. Hybrid RAG (BM25 + FAISS) with cross-encoder reranking; compliance checks and workflow routing via Kafka. MCP integration exposing hybrid search, metadata fetch, contradiction analysis, version chains, and grounded Q&A for IDE and LLM clients.",
     type: "project",
-    tags: ["AI", "Scholarships", "React", "TypeScript", "Supabase", "OpenAI"],
-    live: "https://scholr.aryanrajpurkar.tech",
+    tags: ["Next.js", "Neo4j", "RAG", "Kafka", "MCP"],
+    live: "https://sahayak-ai.aryanrajpurkar.com/",
     technicalSkills:
-      "React, TypeScript, Vite, Supabase, Python (Selenium), OpenAI API, web scraping"
-  },
-  {
-    title: "FlowSocial",
-    description: "Federated Learning Social Media Platform. Privacy-centric social media platform using Federated Learning for personalized, multimedia content recommendations.",
-    type: "project",
-    live: "https://flowsocial.aryanrajpurkar.tech",
-    tags: ["Federated Learning", "ML", "Privacy"],
-    technicalSkills: "React, Flask, MongoDB, TensorFlow/Keras, Federated Learning, Cross-Modal Attention, Natural UI"
+      "Next.js, Python (Flask), MongoDB (GridFS), Neo4j, BM25, FAISS, Elasticsearch, OCR, Apache Kafka",
   },
 ];
 
@@ -129,7 +134,7 @@ const Projects = () => {
                   <span className="text-muted-foreground">{exp.company}</span>
                 </div>
                 <CardTitle className="font-medium">{exp.title}</CardTitle>
-                <CardDescription className="text-muted-foreground mt-2 flex justify-between">
+                <CardDescription className="text-muted-foreground mt-2 flex justify-between gap-2 flex-wrap">
                   <span>{exp.date}</span>
                   <span>{exp.location}</span>
                 </CardDescription>
@@ -149,6 +154,16 @@ const Projects = () => {
                   ))}
                 </div>
               </CardContent>
+              {exp.live && (
+                <CardFooter>
+                  <Button variant="outline" size="sm" asChild className="flex items-center gap-2 bg-violet-800">
+                    <a href={exp.live} target="_blank" rel="noopener noreferrer">
+                      <ExternalLink className="h-4 w-4 " />
+                      Company
+                    </a>
+                  </Button>
+                </CardFooter>
+              )}
             </Card>
           ))}
         </div>
@@ -181,12 +196,12 @@ const Projects = () => {
                   ))}
                 </div>
               </CardContent>
-              <CardFooter className="flex gap-3">
+              <CardFooter className="flex gap-3 flex-wrap">
                 {project.github && (
                   <Button variant="outline" size="sm" asChild className="flex items-center gap-2">
                     <a href={project.github} target="_blank" rel="noopener noreferrer">
                       <Github className="h-4 w-4" />
-                      Code
+                      PyPI
                     </a>
                   </Button>
                 )}

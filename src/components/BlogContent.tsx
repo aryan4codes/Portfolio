@@ -1,6 +1,7 @@
 import React from 'react';
 import { BlogPost } from '@/types/blog';
 import { formatDate } from '@/lib/blogUtils';
+import { renderBlogContent } from '@/lib/renderContent';
 import { Clock, User } from 'lucide-react';
 
 interface BlogContentProps {
@@ -27,9 +28,9 @@ const BlogContent: React.FC<BlogContentProps> = ({ post }) => {
         </div>
       </header>
       
-      <div 
+      <div
         className="blog-content prose prose-lg dark:prose-invert max-w-none"
-        dangerouslySetInnerHTML={{ __html: post.content }}
+        dangerouslySetInnerHTML={{ __html: renderBlogContent(post.content) }}
       />
     </article>
   );

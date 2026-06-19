@@ -30,7 +30,7 @@ const Hero = () => {
               />
             </div>
             <h4 className="text-md md:text-xl lg:text-2xl mb-6 text-muted-foreground">
-              Founder · Agentic AI · Data Platforms · RAG at scale.
+              AI Engineering Intern @ Atlan · Founder · Agentic AI · Data Platforms.
             </h4>
             <p className="text-lg md:text-xl text-muted-foreground mb-8">
               I design autonomous, human-in-the-loop systems for enterprises—multi-agent workflows, GEO and citation strategy,

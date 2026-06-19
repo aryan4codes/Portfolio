@@ -63,7 +63,7 @@ const About = () => {
                 <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/70 flex items-end p-6">
                   <div className="text-white">
                     <h3 className="text-xl font-bold">Aryan Rajpurkar</h3>
-                    <p className="text-white/80 text-sm">Founder · AI & Data Platforms</p>
+                    <p className="text-white/80 text-sm">AI Engineering Intern @ Atlan · Founder</p>
                   </div>
                 </div>
               </div>
@@ -83,18 +83,20 @@ const About = () => {
             <Card className="border border-border bg-card/50 md:col-span-2">
               <CardContent className="p-6">
                 <Tabs defaultValue="personal" className="space-y-6">
-                  <TabsList className="grid grid-cols-3 mb-6">
+                  <TabsList className="grid grid-cols-4 mb-6">
                     <TabsTrigger value="personal">Personal</TabsTrigger>
+                    <TabsTrigger value="experience">Experience</TabsTrigger>
                     <TabsTrigger value="education">Education</TabsTrigger>
                     <TabsTrigger value="achievements">Achievements</TabsTrigger>
                   </TabsList>
                   
                   <TabsContent value="personal" className="space-y-6">
                     <p className="text-lg">
-                      I'm pursuing my B.Tech in Computer Science and Engineering (Data Science) at D.J. Sanghvi College of Engineering
-                      while founding <strong className="font-semibold text-foreground">Aretis Labs</strong>, an AI automation consultancy for autonomous,
-                      human-in-the-loop enterprise systems. I build data platforms, agentic workflows, and RAG-heavy products across HR tech,
-                      document intelligence, marketing automation, and regulated deployments.
+                      I'm an <strong className="font-semibold text-foreground">AI Engineering Intern at Atlan</strong>, working across agentic
+                      development, AI infrastructure, and harness engineering. Alongside that I'm pursuing my B.Tech in Computer Science and Engineering
+                      (Data Science) at D.J. Sanghvi College of Engineering, and I founded <strong className="font-semibold text-foreground">Aretis Labs</strong>,
+                      an AI automation consultancy for autonomous, human-in-the-loop enterprise systems. I build data platforms, agentic workflows, and
+                      RAG-heavy products across HR tech, document intelligence, marketing automation, and regulated deployments.
                     </p>
                     
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -139,7 +141,30 @@ const About = () => {
                       </div>
                     </div>
                   </TabsContent>
-                  
+
+                  <TabsContent value="experience">
+                    <Timeline
+                      items={[
+                        {
+                          title: 'AI Engineering Intern, Atlan',
+                          subtitle: 'Data catalog & metadata platform',
+                          description: 'Working across agentic development, AI infrastructure, and harness engineering: building and orchestrating agent workflows, the infra they run on, and the tooling and harnesses that keep them reliable in production.',
+                          date: '2026 - Present',
+                          color: 'bg-rose-500',
+                          icon: <Brain size={10} />
+                        },
+                        {
+                          title: 'Founder, Aretis Labs',
+                          subtitle: 'AI automation consultancy',
+                          description: 'Autonomous, human-in-the-loop enterprise systems. Data platforms, multi-agent workflows, and RAG-heavy products across HR tech, document intelligence, marketing automation, and regulated deployments.',
+                          date: '2024 - Present',
+                          color: 'bg-amber-500',
+                          icon: <Zap size={10} />
+                        }
+                      ]}
+                    />
+                  </TabsContent>
+
                   <TabsContent value="education">
                     <Timeline 
                       items={[

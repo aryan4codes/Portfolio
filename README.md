@@ -1,6 +1,6 @@
 # Aryan Rajpurkar - Portfolio Website
 
-## Visit portfolio at [aryarajpurkar.tech](https://aryanrajpurkar.tech)
+## Visit portfolio at [aryarajpurkar.com](https://aryanrajpurkar.com)
 ## Overview
 
 This is my personal portfolio website showcasing my projects, skills, and experiences in AI, Machine Learning, and Full-Stack Development. The website features a modern UI with interactive components like animated counters, floating navigation, and other visual effects.
